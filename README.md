@@ -12,3 +12,5 @@ How to use:
 Output value
 jira-keys - All of the keys found in the commit.
     If is-pull-request was true, then it has all of the keys from all of the commits that were found in the pull request.
+
+merge-commit-sha - SHA of merge commit

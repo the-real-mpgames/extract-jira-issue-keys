@@ -14,6 +14,6 @@ const start = async () => {
     if (listOfIds.length == 0) return;
     const result = listOfIds.join(',');
     core.setOutput("jira-keys", result);
-    core.setOutput("merge-commit-sha", merge_commit_sha)
+    core.setOutput("merge-commit-sha", merge_commit_sha);
   }
   start(); 
