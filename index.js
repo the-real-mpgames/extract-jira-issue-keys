@@ -11,7 +11,15 @@ const bigstring = title + littlestring + body;
 
 const start = async () => {
     const listOfIds = unique( matchAll(bigstring,  /((([A-Z]+)|([0-9]+))+-\d+)/g).toArray());
-    if (listOfIds.length == 0) return;
+    if (listOfIds.length == 0) {
+        console.log("There is no JIRA issue keys in PR title and Body")
+        return;
+    }
+    const pattern = /(wip)/gi;
+    if (pattern.test(title) == true) {
+        console.log("found WIP: flag in PR title, skip Jira issue keys extraction")
+        return;
+    }
     const result = listOfIds.join(',');
     core.setOutput("jira-keys", result);
     core.setOutput("merge-commit-sha", merge_commit_sha);
