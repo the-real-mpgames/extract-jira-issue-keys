@@ -10,7 +10,7 @@ const littlestring = ' ';
 const bigstring = title + littlestring + body;
 
 const start = async () => {
-    const listOfIds = unique( matchAll(bigstring,  /((([A-Z]+)|([0-9]+))+-\d+)/g).toArray());
+    const listOfIds = unique( matchAll(bigstring,  /(LH\-[0-9]{1,5})/g).toArray());
     if (listOfIds.length == 0) {
         console.log("There is no JIRA issue keys in PR title and Body")
         return;
